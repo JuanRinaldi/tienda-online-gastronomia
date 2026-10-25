@@ -1,0 +1,1298 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>HELIX Burger | Pedidos Online</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- ESTILOS COMPACTOS DEL MENÚ -->
+    <style>
+        /* Encabezado */
+        .encabezado-menu {
+            padding-top: 22px;
+            padding-bottom: 12px;
+        }
+
+        .encabezado-menu h1 {
+            font-size: 1.8rem;
+            margin-bottom: 6px;
+        }
+
+        .encabezado-menu p {
+            font-size: 0.95rem;
+            margin-bottom: 0;
+        }
+
+        /* Menú */
+        .menu h2 {
+            font-size: 1.5rem;
+            margin-bottom: 16px !important;
+        }
+
+        .buscador-menu {
+            max-width: 520px;
+            margin: 0 auto 16px;
+        }
+
+        .filtros-menu {
+            gap: 7px !important;
+            margin-bottom: 20px !important;
+        }
+
+        .filtros-menu .btn {
+            font-size: 0.83rem;
+            padding: 6px 12px;
+            border-radius: 20px;
+        }
+
+        /* Tarjetas de productos */
+        .menu .producto {
+            margin-bottom: 16px !important;
+        }
+
+        .menu .card {
+            height: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .menu .card-img-top {
+            width: 100%;
+            height: 155px;
+            object-fit: cover;
+        }
+
+        .menu .card-body {
+            padding: 12px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .menu .card-title {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .menu .card-text {
+            font-size: 0.83rem;
+            line-height: 1.35;
+            margin-bottom: 9px;
+        }
+
+        .menu .precio {
+            font-size: 1.08rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .menu .card .btn {
+            font-size: 0.8rem;
+            padding: 7px 10px;
+            line-height: 1.25;
+            width: 100%;
+            margin-top: auto;
+        }
+
+        /* Carrito principal */
+        .carrito {
+            max-width: 680px;
+            margin: 28px auto !important;
+            padding: 18px !important;
+            border-radius: 12px;
+        }
+
+        .carrito h3 {
+            font-size: 1.3rem;
+            margin-bottom: 14px;
+        }
+
+        #lista-carrito {
+            margin-bottom: 12px !important;
+        }
+
+        .item-carrito {
+            padding: 9px !important;
+            margin-bottom: 8px;
+        }
+
+        .item-carrito p {
+            font-size: 0.88rem;
+            margin-bottom: 5px;
+        }
+
+        .carrito > p {
+            font-size: 0.93rem;
+            margin-bottom: 8px;
+        }
+
+        #ver-pedido {
+            font-size: 0.9rem;
+            padding: 8px 18px;
+        }
+
+        /* Minicarrito flotante */
+        .mini-carrito {
+            position: fixed;
+            right: 16px;
+            bottom: 16px;
+            z-index: 1000;
+
+            background: #C62828;
+            color: white;
+            padding: 10px 14px;
+            border-radius: 12px;
+
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.22);
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+
+            min-width: 135px;
+            font-size: 0.82rem;
+        }
+
+        .mini-carrito.d-none {
+            display: none !important;
+        }
+
+        .mini-carrito strong {
+            font-size: 1rem;
+        }
+
+        .mini-carrito .btn {
+            font-size: 0.75rem;
+            padding: 4px 10px;
+        }
+
+        /* Modal de combos */
+        #modalCombo .modal-header,
+        #modalCombo .modal-footer {
+            padding: 12px 16px;
+        }
+
+        #modalCombo .modal-body {
+            padding: 15px 16px;
+        }
+
+        #modalCombo .modal-body h5 {
+            font-size: 1rem;
+        }
+
+        #modalCombo .form-select {
+            margin-bottom: 15px !important;
+        }
+
+        #modalCombo .modal-body h4 {
+            font-size: 1.2rem;
+        }
+
+        /* Celulares */
+        @media (max-width: 767px) {
+            .encabezado-menu {
+                padding-top: 16px;
+                padding-bottom: 12px;
+            }
+
+            .encabezado-menu h1 {
+                font-size: 1.45rem;
+            }
+
+            .encabezado-menu p {
+                font-size: 0.82rem;
+            }
+
+            .menu h2 {
+                font-size: 1.3rem;
+            }
+
+            .menu .row {
+                --bs-gutter-x: 12px;
+            }
+
+            .menu .producto {
+                margin-bottom: 12px !important;
+            }
+
+            .menu .card-img-top {
+                height: 115px;
+            }
+
+            .menu .card-body {
+                padding: 9px;
+            }
+
+            .menu .card-title {
+                font-size: 0.88rem;
+                line-height: 1.2;
+            }
+
+            .menu .card-text {
+                font-size: 0.73rem;
+                line-height: 1.3;
+            }
+
+            .menu .precio {
+                font-size: 0.95rem;
+                margin-bottom: 8px;
+            }
+
+            .menu .card .btn {
+                font-size: 0.72rem;
+                padding: 7px 5px;
+            }
+
+            .filtros-menu .btn {
+                font-size: 0.75rem;
+                padding: 5px 9px;
+            }
+
+            .carrito {
+                padding: 12px !important;
+            }
+
+            .mini-carrito {
+                right: 10px;
+                bottom: 10px;
+                min-width: 115px;
+                padding: 8px 10px;
+                font-size: 0.72rem;
+            }
+
+            .mini-carrito strong {
+                font-size: 0.88rem;
+            }
+
+            .mini-carrito .btn {
+                font-size: 0.7rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ENCABEZADO -->
+    <header class="container text-center encabezado-menu">
+        <h1>🍔 Bienvenidos a HELIX Burger</h1>
+        <p>Las mejores hamburguesas de la ciudad</p>
+    </header>
+
+    <main class="container">
+
+        <section class="menu">
+
+            <h2 class="text-center">Nuestro Menú 🍔</h2>
+
+            <!-- BUSCADOR -->
+            <div class="buscador-menu">
+                <input
+                    type="search"
+                    id="buscar-producto"
+                    class="form-control"
+                    placeholder="🔍 Buscar productos...">
+            </div>
+
+            <!-- FILTROS -->
+            <div class="filtros-menu d-flex justify-content-center flex-wrap">
+
+                <button class="btn btn-danger filtro-btn active"
+                        data-categoria="todos">
+                    Todos
+                </button>
+
+                <button class="btn btn-outline-danger filtro-btn"
+                        data-categoria="hamburguesas">
+                    🍔 Hamburguesas
+                </button>
+
+                <button class="btn btn-outline-danger filtro-btn"
+                        data-categoria="papas">
+                    🍟 Papas
+                </button>
+
+                <button class="btn btn-outline-danger filtro-btn"
+                        data-categoria="bebidas">
+                    🥤 Bebidas
+                </button>
+
+                <button class="btn btn-outline-danger filtro-btn"
+                        data-categoria="combos">
+                    🍔 Combos
+                </button>
+
+                <button class="btn btn-outline-danger filtro-btn"
+                        data-categoria="ofertas">
+                    🏷️ Ofertas
+                </button>
+
+            </div>
+
+            <!-- PRODUCTOS -->
+            <div class="row">
+
+                <!-- HAMBURGUESAS -->
+
+                <!-- 1. BURGER CLÁSICA -->
+                <div class="col-6 col-md-4 mb-4 producto"
+                     data-categoria="hamburguesas">
+
+                    <div class="card h-100">
+                        <img src="assets/img/burger-clasica.jpg"
+                             class="card-img-top"
+                             alt="Burger Clásica">
+
+                        <div class="card-body">
+                            <h5 class="card-title">Burger Clásica</h5>
+
+                            <p class="card-text">
+                                Medallón de carne, cheddar,
+                                lechuga, tomate y salsa especial.
+                            </p>
+
+                            <p class="precio">$8.500</p>
+
+                            <button type="button"
+                                    class="btn btn-danger agregar-carrito"
+                                    data-id="1"
+                                    data-nombre="Burger Clásica"
+                                    data-precio="8500">
+                                Agregar al pedido
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. BURGER CRISPY -->
+                <div class="col-6 col-md-4 mb-4 producto"
+                     data-categoria="hamburguesas">
+
+                    <div class="card h-100">
+                        <img src="assets/img/burger-clasica.jpg"
+                             class="card-img-top"
+                             alt="Burger Crispy">
+
+                        <div class="card-body">
+                            <h5 class="card-title">Burger Crispy</h5>
+
+                            <p class="card-text">
+                                Medallón de carne, cheddar,
+                                cebolla crispy y salsa especial.
+                            </p>
+
+                            <p class="precio">$9.500</p>
+
+                            <button type="button"
+                                    class="btn btn-danger agregar-carrito"
+                                    data-id="2"
+                                    data-nombre="Burger Crispy"
+                                    data-precio="9500">
+                                Agregar al pedido
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. BURGER DOBLE -->
+                <div class="col-6 col-md-4 mb-4 producto"
+                     data-categoria="hamburguesas">
+
+                    <div class="card h-100">
+                        <img src="assets/img/burger-clasica.jpg"
+                             class="card-img-top"
+                             alt="Burger doble">
+
+                        <div class="card-body">
+                            <h5 class="card-title">Burger doble</h5>
+
+                            <p class="card-text">
+                                Doble medallón de carne, cheddar,
+                                lechuga, tomate y salsa especial.
+                            </p>
+
+                            <p class="precio">$12.500</p>
+
+                            <button type="button"
+                                    class="btn btn-danger agregar-carrito"
+                                    data-id="3"
+                                    data-nombre="Burger doble"
+                                    data-precio="12500">
+                                Agregar al pedido
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. BURGER TRIPLE -->
+                <div class="col-6 col-md-4 mb-4 producto"
+                     data-categoria="hamburguesas">
+
+                    <div class="card h-100">
+                        <img src="assets/img/burger-clasica.jpg"
+                             class="card-img-top"
+                             alt="Burger triple">
+
+                        <div class="card-body">
+                            <h5 class="card-title">Burger triple</h5>
+
+                            <p class="card-text">
+                                Triple medallón de carne, cheddar,
+                                lechuga, tomate y salsa especial.
+                            </p>
+
+                            <p class="precio">$15.500</p>
+
+                            <button type="button"
+                                    class="btn btn-danger agregar-carrito"
+                                    data-id="4"
+                                    data-nombre="Burger triple"
+                                    data-precio="15500">
+                                Agregar al pedido
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. BURGER CHEESE -->
+                <div class="col-6 col-md-4 mb-4 producto"
+                     data-categoria="hamburguesas">
+
+                    <div class="card h-100">
+                        <img src="assets/img/burger-clasica.jpg"
+                             class="card-img-top"
+                             alt="Burger cheese">
+
+                        <div class="card-body">
+                            <h5 class="card-title">Burger cheese</h5>
+
+                            <p class="card-text">
+                                Medallón de carne, triple cheddar
+                                y salsa especial.
+                            </p>
+
+                            <p class="precio">$10.500</p>
+
+                            <button type="button"
+                                    class="btn btn-danger agregar-carrito"
+                                    data-id="5"
+                                    data-nombre="Burger cheese"
+                                    data-precio="10500">
+                                Agregar al pedido
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. BURGER AMERICANA -->
+                <div class="col-6 col-md-4 mb-4 producto"
+                     data-categoria="hamburguesas">
+
+                    <div class="card h-100">
+                        <img src="assets/img/burger-clasica.jpg"
+                             class="card-img-top"
+                             alt="Burger americana">
+
+                        <div class="card-body">
+                            <h5 class="card-title">Burger americana</h5>
+
+                            <p class="card-text">
+                                Doble medallón de carne, cheddar,
+                                bacon y salsa especial.
+                            </p>
+
+                            <p class="precio">$14.500</p>
+
+                            <button type="button"
+                                    class="btn btn-danger agregar-carrito"
+                                    data-id="6"
+                                    data-nombre="Burger americana"
+                                    data-precio="14500">
+                                Agregar al pedido
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 7. BURGER SUPER BACON -->
+                <div class="col-6 col-md-4 mb-4 producto"
+                     data-categoria="hamburguesas">
+
+                    <div class="card h-100">
+                        <img src="assets/img/burger-clasica.jpg"
+                             class="card-img-top"
+                             alt="Burger super bacon">
+
+                        <div class="card-body">
+                            <h5 class="card-title">Burger super bacon</h5>
+
+                            <p class="card-text">
+                                Medallón de carne, triple bacon
+                                y salsa especial.
+                            </p>
+
+                            <p class="precio">$16.500</p>
+
+                            <button type="button"
+                                    class="btn btn-danger agregar-carrito"
+                                    data-id="7"
+                                    data-nombre="Burger super bacon"
+                                    data-precio="16500">
+                                Agregar al pedido
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 8. BURGER ESPECIAL -->
+                <div class="col-6 col-md-4 mb-4 producto"
+                     data-categoria="hamburguesas">
+
+                    <div class="card h-100">
+                        <img src="assets/img/burger-clasica.jpg"
+                             class="card-img-top"
+                             alt="Burger especial">
+
+                        <div class="card-body">
+                            <h5 class="card-title">Burger especial</h5>
+
+                            <p class="card-text">
+                                Doble medallón de carne, cheddar,
+                                bacon, huevo y salsa especial.
+                            </p>
+
+                            <p class="precio">$18.500</p>
+
+                            <button type="button"
+                                    class="btn btn-danger agregar-carrito"
+                                    data-id="8"
+                                    data-nombre="Burger especial"
+                                    data-precio="18500">
+                                Agregar al pedido
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 9. BURGER ROQUE -->
+                <div class="col-6 col-md-4 mb-4 producto"
+                     data-categoria="hamburguesas">
+
+                    <div class="card h-100">
+                        <img src="assets/img/burger-clasica.jpg"
+                             class="card-img-top"
+                             alt="Burger roque">
+
+                        <div class="card-body">
+                            <h5 class="card-title">Burger roque</h5>
+
+                            <p class="card-text">
+                                Medallón de carne, roquefort
+                                y salsa especial.
+                            </p>
+
+                            <p class="precio">$11.500</p>
+
+                            <button type="button"
+                                    class="btn btn-danger agregar-carrito"
+                                    data-id="9"
+                                    data-nombre="Burger roque"
+                                    data-precio="11500">
+                                Agregar al pedido
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PAPAS -->
+
+                <!-- 10. PAPAS CLÁSICAS -->
+                <div class="col-6 col-md-4 mb-4 producto"
+                     data-categoria="papas">
+
+                    <div class="card h-100">
+                        <img src="assets/img/papas-clasicas.jpg"
+                             class="card-img-top"
+                             alt="Papas clásicas">
+
+                        <div class="card-body">
+                            <h5 class="card-title">Papas clásicas</h5>
+
+                            <p class="card-text">
+                                Porción de papas fritas
+                                crocantes y doradas.
+                            </p>
+
+                            <p class="precio">$4.000</p>
+
+                            <button type="button"
+                                    class="btn btn-danger agregar-carrito"
+                                    data-id="10"
+                                    data-nombre="Papas clásicas"
+                                    data-precio="4000">
+                                Agregar al pedido
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 11. PAPAS CON CHEDDAR -->
+                <div class="col-6 col-md-4 mb-4 producto"
+                     data-categoria="papas">
+
+                    <div class="card h-100">
+                        <img src="assets/img/papas-con-cheddar.jpg"
+                             class="card-img-top"
+                             alt="Papas con cheddar">
+
+                        <div class="card-body">
+                            <h5 class="card-title">Papas con cheddar</h5>
+
+                            <p class="card-text">
+                                Porción de papas fritas
+                                crocantes y doradas con cheddar.
+                            </p>
+
+                            <p class="precio">$4.500</p>
+
+                            <button type="button"
+                                    class="btn btn-danger agregar-carrito"
+                                    data-id="11"
+                                    data-nombre="Papas con cheddar"
+                                    data-precio="4500">
+                                Agregar al pedido
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 12. PAPAS CON CHEDDAR Y BACON -->
+                <div class="col-6 col-md-4 mb-4 producto"
+                     data-categoria="papas">
+
+                    <div class="card h-100">
+                        <img src="assets/img/papas-con-cheddar-bacon.jpg"
+                             class="card-img-top"
+                             alt="Papas con cheddar y bacon">
+
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                Papas con cheddar y bacon
+                            </h5>
+
+                            <p class="card-text">
+                                Porción de papas fritas crocantes
+                                y doradas, con cheddar y bacon.
+                            </p>
+
+                            <p class="precio">$6.000</p>
+
+                            <button type="button"
+                                    class="btn btn-danger agregar-carrito"
+                                    data-id="12"
+                                    data-nombre="Papas con cheddar y bacon"
+                                    data-precio="6000">
+                                Agregar al pedido
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BEBIDAS -->
+
+                <!-- 13. GASEOSA -->
+                <div class="col-6 col-md-4 mb-4 producto"
+                     data-categoria="bebidas">
+
+                    <div class="card h-100">
+                        <img src="assets/img/gaseosa.png"
+                             class="card-img-top"
+                             alt="Gaseosa en lata">
+
+                        <div class="card-body">
+                            <h5 class="card-title">Gaseosa en lata</h5>
+
+                            <p class="card-text">
+                                Gaseosa fría de 354 ml.
+                            </p>
+
+                            <p class="precio">$2.500</p>
+
+                            <button type="button"
+                                    class="btn btn-danger agregar-carrito"
+                                    data-id="13"
+                                    data-nombre="Gaseosa en lata"
+                                    data-precio="2500">
+                                Agregar al pedido
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 14. AGUA MINERAL -->
+                <div class="col-6 col-md-4 mb-4 producto"
+                     data-categoria="bebidas">
+
+                    <div class="card h-100">
+                        <img src="assets/img/agua.png"
+                             class="card-img-top"
+                             alt="Agua mineral">
+
+                        <div class="card-body">
+                            <h5 class="card-title">Agua mineral</h5>
+
+                            <p class="card-text">
+                                Agua mineral de 500 ml.
+                            </p>
+
+                            <p class="precio">$2.000</p>
+
+                            <button type="button"
+                                    class="btn btn-danger agregar-carrito"
+                                    data-id="14"
+                                    data-nombre="Agua mineral"
+                                    data-precio="2000">
+                                Agregar al pedido
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 15. CERVEZA -->
+                <div class="col-6 col-md-4 mb-4 producto"
+                     data-categoria="bebidas">
+
+                    <div class="card h-100">
+                        <img src="assets/img/cerveza.png"
+                             class="card-img-top"
+                             alt="Cerveza en lata">
+
+                        <div class="card-body">
+                            <h5 class="card-title">Cerveza en lata</h5>
+
+                            <p class="card-text">
+                                Cerveza Patagonia de 473 ml.
+                            </p>
+
+                            <p class="precio">$4.500</p>
+
+                            <button type="button"
+                                    class="btn btn-danger agregar-carrito"
+                                    data-id="15"
+                                    data-nombre="Cerveza en lata"
+                                    data-precio="4500">
+                                Agregar al pedido
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- COMBOS -->
+
+                <!-- 16. COMBO CLÁSICA -->
+                <div class="col-6 col-md-4 mb-4 producto"
+                     data-categoria="combos">
+
+                    <div class="card h-100">
+                        <img src="assets/img/combo1.png"
+                             class="card-img-top"
+                             alt="Combo Burger Clásica">
+
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                Combo Burger Clásica
+                            </h5>
+
+                            <p class="card-text">
+                                Burger Clásica + papas a elección
+                                + bebida a elección.
+                            </p>
+
+                            <p class="precio">$12.500</p>
+
+                            <button type="button"
+                                    class="btn btn-danger"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#modalCombo"
+                                    data-id="16"
+                                    data-nombre="Combo Burger Clásica"
+                                    data-precio="12500">
+                                Personalizar combo
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 17. COMBO CRISPY -->
+                <div class="col-6 col-md-4 mb-4 producto"
+                     data-categoria="combos">
+
+                    <div class="card h-100">
+                        <img src="assets/img/combo1.png"
+                             class="card-img-top"
+                             alt="Combo Burger Crispy">
+
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                Combo Burger Crispy
+                            </h5>
+
+                            <p class="card-text">
+                                Burger Crispy + papas a elección
+                                + bebida a elección.
+                            </p>
+
+                            <p class="precio">$13.500</p>
+
+                            <button type="button"
+                                    class="btn btn-danger"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#modalCombo"
+                                    data-id="17"
+                                    data-nombre="Combo Burger Crispy"
+                                    data-precio="13500">
+                                Personalizar combo
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 18. COMBO DOBLE -->
+                <div class="col-6 col-md-4 mb-4 producto"
+                     data-categoria="combos">
+
+                    <div class="card h-100">
+                        <img src="assets/img/combo1.png"
+                             class="card-img-top"
+                             alt="Combo Burger doble">
+
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                Combo Burger doble
+                            </h5>
+
+                            <p class="card-text">
+                                Burger doble + papas a elección
+                                + bebida a elección.
+                            </p>
+
+                            <p class="precio">$16.500</p>
+
+                            <button type="button"
+                                    class="btn btn-danger"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#modalCombo"
+                                    data-id="18"
+                                    data-nombre="Combo Burger doble"
+                                    data-precio="16500">
+                                Personalizar combo
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 19. COMBO TRIPLE -->
+                <div class="col-6 col-md-4 mb-4 producto"
+                     data-categoria="combos">
+
+                    <div class="card h-100">
+                        <img src="assets/img/combo1.png"
+                             class="card-img-top"
+                             alt="Combo Burger triple">
+
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                Combo Burger triple
+                            </h5>
+
+                            <p class="card-text">
+                                Burger triple + papas a elección
+                                + bebida a elección.
+                            </p>
+
+                            <p class="precio">$17.500</p>
+
+                            <button type="button"
+                                    class="btn btn-danger"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#modalCombo"
+                                    data-id="19"
+                                    data-nombre="Combo Burger triple"
+                                    data-precio="17500">
+                                Personalizar combo
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 20. COMBO CHEESE -->
+                <div class="col-6 col-md-4 mb-4 producto"
+                     data-categoria="combos">
+
+                    <div class="card h-100">
+                        <img src="assets/img/combo1.png"
+                             class="card-img-top"
+                             alt="Combo Burger cheese">
+
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                Combo Burger cheese
+                            </h5>
+
+                            <p class="card-text">
+                                Burger cheese + papas a elección
+                                + bebida a elección.
+                            </p>
+
+                            <p class="precio">$12.500</p>
+
+                            <button type="button"
+                                    class="btn btn-danger"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#modalCombo"
+                                    data-id="20"
+                                    data-nombre="Combo Burger cheese"
+                                    data-precio="12500">
+                                Personalizar combo
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 22. COMBO AMERICANA -->
+                <div class="col-6 col-md-4 mb-4 producto"
+                     data-categoria="combos">
+
+                    <div class="card h-100">
+                        <img src="assets/img/combo1.png"
+                             class="card-img-top"
+                             alt="Combo Burger americana">
+
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                Combo Burger americana
+                            </h5>
+
+                            <p class="card-text">
+                                Burger americana + papas a elección
+                                + bebida a elección.
+                            </p>
+
+                            <p class="precio">$16.500</p>
+
+                            <button type="button"
+                                    class="btn btn-danger"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#modalCombo"
+                                    data-id="22"
+                                    data-nombre="Combo Burger americana"
+                                    data-precio="16500">
+                                Personalizar combo
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 23. COMBO SUPER BACON -->
+                <div class="col-6 col-md-4 mb-4 producto"
+                     data-categoria="combos">
+
+                    <div class="card h-100">
+                        <img src="assets/img/combo1.png"
+                             class="card-img-top"
+                             alt="Combo Burger super bacon">
+
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                Combo Burger super bacon
+                            </h5>
+
+                            <p class="card-text">
+                                Burger super bacon + papas a elección
+                                + bebida a elección.
+                            </p>
+
+                            <p class="precio">$18.500</p>
+
+                            <button type="button"
+                                    class="btn btn-danger"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#modalCombo"
+                                    data-id="23"
+                                    data-nombre="Combo Burger super bacon"
+                                    data-precio="18500">
+                                Personalizar combo
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 24. COMBO ESPECIAL -->
+                <div class="col-6 col-md-4 mb-4 producto"
+                     data-categoria="combos">
+
+                    <div class="card h-100">
+                        <img src="assets/img/combo1.png"
+                             class="card-img-top"
+                             alt="Combo Burger especial">
+
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                Combo Burger especial
+                            </h5>
+
+                            <p class="card-text">
+                                Burger especial + papas a elección
+                                + bebida a elección.
+                            </p>
+
+                            <p class="precio">$20.500</p>
+
+                            <button type="button"
+                                    class="btn btn-danger"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#modalCombo"
+                                    data-id="24"
+                                    data-nombre="Combo Burger especial"
+                                    data-precio="20500">
+                                Personalizar combo
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 25. COMBO ROQUE -->
+                <div class="col-6 col-md-4 mb-4 producto"
+                     data-categoria="combos">
+
+                    <div class="card h-100">
+                        <img src="assets/img/combo1.png"
+                             class="card-img-top"
+                             alt="Combo Burger roque">
+
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                Combo Burger roque
+                            </h5>
+
+                            <p class="card-text">
+                                Burger roque + papas a elección
+                                + bebida a elección.
+                            </p>
+
+                            <p class="precio">$13.500</p>
+
+                            <button type="button"
+                                    class="btn btn-danger"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#modalCombo"
+                                    data-id="25"
+                                    data-nombre="Combo Burger roque"
+                                    data-precio="13500">
+                                Personalizar combo
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- OFERTAS -->
+
+                <!-- 26. PROMO DÚO CLÁSICA -->
+                <div class="col-6 col-md-4 mb-4 producto"
+                     data-categoria="ofertas">
+
+                    <div class="card h-100">
+                        <img src="assets/img/combo1.png"
+                             class="card-img-top"
+                             alt="Promo Dúo Clásica">
+
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                Promo Dúo Clásica
+                            </h5>
+
+                            <p class="card-text">
+                                ¡Para compartir!
+                                2 hamburguesas clásicas +
+                                2 porciones de papas clásicas.
+                            </p>
+
+                            <p class="precio">$22.000</p>
+
+                            <button type="button"
+                                    class="btn btn-danger agregar-carrito"
+                                    data-id="26"
+                                    data-nombre="Promo Dúo Clásica"
+                                    data-precio="22000">
+                                Agregar al pedido
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- FIN DE LA FILA DE PRODUCTOS -->
+
+        </section>
+
+        <!-- CARRITO PRINCIPAL -->
+        <section class="carrito text-center my-5">
+
+            <h3>🛒 Tu pedido</h3>
+
+            <div id="lista-carrito" class="mb-4">
+                <!-- JavaScript mostrará los productos acá -->
+            </div>
+
+            <p>
+                Productos seleccionados:
+                <span id="cantidad-carrito">0</span>
+            </p>
+
+            <p>
+                Total:
+                <span id="total-carrito">$0</span>
+            </p>
+
+            <button type="button"
+                    class="btn btn-danger"
+                    id="ver-pedido">
+                Ver mi pedido
+            </button>
+
+        </section>
+
+    </main>
+
+    <!-- MODAL PARA PERSONALIZAR COMBOS -->
+    <div class="modal fade"
+         id="modalCombo"
+         tabindex="-1"
+         aria-labelledby="tituloModalCombo"
+         aria-hidden="true">
+
+        <div class="modal-dialog modal-dialog-centered">
+
+            <div class="modal-content">
+
+                <div class="modal-header">
+
+                    <h5 class="modal-title" id="tituloModalCombo">
+                        🍔 Personalizá tu combo
+                    </h5>
+
+                    <button type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Cerrar">
+                    </button>
+
+                </div>
+
+                <div class="modal-body">
+
+                    <h5>🍟 Elegí tus papas</h5>
+
+                    <select id="combo-papas"
+                            class="form-select mb-4">
+
+                        <option value="0"
+                                data-nombre="Papas clásicas">
+                            Papas clásicas (incluidas)
+                        </option>
+
+                        <option value="500"
+                                data-nombre="Papas con cheddar">
+                            Papas con cheddar (+$500)
+                        </option>
+
+                        <option value="1000"
+                                data-nombre="Papas con cheddar y bacon">
+                            Papas con cheddar y bacon (+$1.000)
+                        </option>
+
+                    </select>
+
+                    <h5>🥤 Elegí tu bebida</h5>
+
+                    <select id="combo-bebida"
+                            class="form-select mb-4">
+
+                        <option value="Coca-Cola">
+                            Coca-Cola
+                        </option>
+
+                        <option value="Agua mineral">
+                            Agua mineral
+                        </option>
+
+                        <option value="Cerveza Patagonia">
+                            Cerveza Patagonia
+                        </option>
+
+                    </select>
+
+                    <hr>
+
+                    <h4 class="text-center">
+                        Total:
+                        <span id="combo-total">$12.500</span>
+                    </h4>
+
+                </div>
+
+                <div class="modal-footer">
+
+                    <button type="button"
+                            class="btn btn-outline-danger"
+                            data-bs-dismiss="modal">
+                        Cancelar
+                    </button>
+
+                    <button type="button"
+                            class="btn btn-danger"
+                            id="confirmar-combo">
+                        Agregar combo al pedido
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- MINI CARRITO FLOTANTE -->
+    <div id="mini-carrito" class="mini-carrito d-none">
+
+        <div>🛒 Mi pedido</div>
+
+        <span id="mini-cantidad">0 productos</span>
+
+        <strong id="mini-total">$0</strong>
+
+        <a href="#lista-carrito"
+           class="btn btn-light btn-sm">
+            Ver carrito
+        </a>
+
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/app.js"></script>
+
+</body>
+</html>

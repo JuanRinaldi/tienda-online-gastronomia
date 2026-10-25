@@ -1,0 +1,437 @@
+/* estilos menu.html */
+
+body {
+    background-color: #FFF3DC;
+    color: #242424;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    color: #C62828;
+    text-align: center;
+    margin-top: 50px;
+}
+
+p {
+    text-align: center;
+}
+
+/* Título del menú */
+.menu h2 {
+    color: #C62828;
+    font-weight: bold;
+}
+
+/* Tarjetas de productos */
+.menu .card {
+    border-radius: 15px;
+    overflow: hidden;
+    border: 2px solid #C62828;
+}
+
+/* Imagen de hamburguesa */
+.menu .card-img-top {
+    height: 220px;
+    object-fit: cover;
+}
+
+/* Precio */
+.menu .precio {
+    color: #C62828;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Botón */
+.menu .btn-danger {
+    background-color: #C62828;
+    border: none;
+}
+
+.menu .btn-danger:hover {
+    background-color: #A61F1F;
+}
+
+
+/* Carrito de compras */
+.carrito {
+    background-color: #FFFFFF;
+    border: 2px solid #C62828;
+    border-radius: 15px;
+    padding: 25px;
+}
+
+.carrito h3 {
+    color: #C62828;
+    font-weight: bold;
+}
+
+.carrito span {
+    font-weight: bold;
+    color: #C62828;
+}
+
+
+/* Productos dentro del carrito */
+.item-carrito {
+    background-color: #FFF3DC;
+    border: 1px solid #C62828;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 10px;
+}
+
+/* Botones para modificar cantidades */
+.item-carrito button {
+    margin: 0 5px;
+}
+
+.item-carrito .nombre-producto {
+    font-weight: bold;
+    color: #242424;
+}
+
+/* estilos resumen.html */
+
+
+/* Página de resumen */
+.resumen {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.resumen h2 {
+    color: #C62828;
+    font-weight: bold;
+}
+
+/* Productos del resumen */
+.item-resumen {
+    background-color: #FFFFFF;
+    border: 2px solid #C62828;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 15px;
+}
+
+/* Total del pedido */
+.total-resumen {
+    background-color: #FFFFFF;
+    border-radius: 15px;
+    padding: 20px;
+}
+
+.total-resumen h3,
+.total-resumen span {
+    color: #C62828;
+    font-weight: bold;
+}
+
+
+/* Estilos pagos.html*/
+
+
+/* Página de pagos */
+.pagos {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.pagos h2 {
+    color: #C62828;
+    font-weight: bold;
+}
+
+/* Opciones de pago */
+.opciones-pago {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.opcion-pago {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background-color: #FFFFFF;
+    border: 2px solid #C62828;
+    border-radius: 15px;
+    padding: 20px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.opcion-pago:hover {
+    background-color: #FFE8C2;
+}
+
+.opcion-pago:has(input:checked) {
+    background-color: #FFE8C2;
+    border-color: #A61F1F;
+}
+
+.opcion-pago span {
+    font-size: 20px;
+    font-weight: bold;
+    color: #C62828;
+}
+
+.opcion-pago small {
+    color: #555555;
+}
+
+/* Total del pedido */
+.total-pagos {
+    background-color: #FFFFFF;
+    border-radius: 15px;
+    padding: 20px;
+}
+
+.total-pagos h3,
+.total-pagos span {
+    color: #C62828;
+    font-weight: bold;
+}
+
+/* estilos envios.html */
+
+
+/* Página de envío */
+.envio {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.envio h2,
+.envio h3 {
+    color: #C62828;
+    font-weight: bold;
+}
+
+/* Opciones de entrega */
+.opciones-entrega {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.opcion-entrega {
+    background-color: #FFFFFF;
+    border: 2px solid #C62828;
+    border-radius: 15px;
+    padding: 20px;
+    cursor: pointer;
+}
+
+.opcion-entrega span {
+    color: #C62828;
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.opcion-entrega:has(input:checked) {
+    background-color: #FFE8C2;
+}
+
+/* Datos del cliente */
+.datos-cliente {
+    background-color: #FFFFFF;
+    border-radius: 15px;
+    padding: 25px;
+}
+
+.datos-cliente label {
+    font-weight: bold;
+    color: #242424;
+}
+
+.datos-cliente .form-control:focus {
+    border-color: #C62828;
+    box-shadow: 0 0 0 0.2rem rgba(198, 40, 40, 0.15);
+}
+
+/* MINI CARRITO FLOTANTE */
+
+.mini-carrito {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+
+    background-color: #C62828;
+    color: white;
+
+    padding: 15px 20px;
+    border-radius: 15px;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+
+    z-index: 1000;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+
+    min-width: 160px;
+}
+
+.mini-carrito.d-none {
+    display: none;
+}
+
+@media (max-width: 576px) {
+    .mini-carrito {
+        bottom: 12px;
+        right: 12px;
+        padding: 10px 14px;
+        min-width: 135px;
+        font-size: 14px;
+    }
+}
+
+/* =====================================
+   DISEÑO COMPACTO HELIX BURGER
+===================================== */
+
+/* Espaciado general */
+header.container {
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+}
+
+h1 {
+    font-size: 1.8rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+}
+
+h3 {
+    font-size: 1.3rem;
+}
+
+/* Tarjetas de productos */
+.menu .card {
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.menu .card-img-top {
+    height: 155px;
+    object-fit: cover;
+}
+
+.menu .card-body {
+    padding: 12px;
+}
+
+.menu .card-title {
+    font-size: 1rem;
+    margin-bottom: 6px;
+}
+
+.menu .card-text {
+    font-size: 0.85rem;
+    line-height: 1.35;
+    margin-bottom: 8px;
+}
+
+.menu .precio {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.menu .card .btn {
+    font-size: 0.8rem;
+    padding: 6px 12px;
+}
+
+/* Menos espacio entre tarjetas */
+.menu .producto {
+    margin-bottom: 16px !important;
+}
+
+/* Botones generales */
+.btn {
+    font-size: 0.9rem;
+}
+
+/* Carrito principal */
+.carrito {
+    padding: 15px !important;
+}
+
+.item-carrito {
+    padding: 10px !important;
+    margin-bottom: 8px;
+}
+
+.item-carrito p {
+    margin-bottom: 6px;
+}
+
+/* Tarjetas de resumen, pago y envío */
+main .card {
+    border-radius: 12px;
+}
+
+/* =====================================
+   VERSIÓN CELULAR
+===================================== */
+
+@media (max-width: 767px) {
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+    }
+
+    h3 {
+        font-size: 1.15rem;
+    }
+
+    .menu .card-img-top {
+        height: 125px;
+    }
+
+    .menu .card-body {
+        padding: 10px;
+    }
+
+    .menu .card-title {
+        font-size: 0.95rem;
+    }
+
+    .menu .card-text {
+        font-size: 0.8rem;
+    }
+
+    .menu .precio {
+        font-size: 1rem;
+    }
+
+    .menu .card .btn {
+        font-size: 0.8rem;
+        padding: 6px 10px;
+    }
+
+    .filtros-menu {
+        gap: 6px !important;
+    }
+
+    .filtros-menu .btn {
+        font-size: 0.75rem;
+        padding: 6px 9px;
+    }
+
+    .mini-carrito {
+        min-width: 120px;
+        padding: 9px 12px;
+        font-size: 12px;
+    }
+}

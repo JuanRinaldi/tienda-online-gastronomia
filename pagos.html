@@ -1,0 +1,305 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>HELIX Burger | Forma de pago</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <!-- Nuestro CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- ESTILOS COMPACTOS DE PAGOS -->
+    <style>
+
+        /* Encabezado */
+        .encabezado-pagos {
+            padding-top: 25px;
+            padding-bottom: 15px;
+        }
+
+        .encabezado-pagos h1 {
+            font-size: 1.8rem;
+            margin-bottom: 6px;
+        }
+
+        .encabezado-pagos p {
+            font-size: 0.95rem;
+            margin-bottom: 0;
+        }
+
+        /* Contenedor principal */
+        .pagos {
+            max-width: 620px;
+            margin: 0 auto;
+        }
+
+        .pagos h2 {
+            font-size: 1.35rem;
+            margin-bottom: 20px !important;
+        }
+
+        /* Opciones de pago */
+        .opciones-pago {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .opcion-pago {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+
+            padding: 14px 18px;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+
+            background-color: #fff;
+            cursor: pointer;
+
+            transition: 0.2s ease;
+        }
+
+        .opcion-pago:hover {
+            border-color: #C62828;
+            background-color: #fff8f5;
+        }
+
+        .opcion-pago:has(input:checked) {
+            border-color: #C62828;
+            background-color: #fff3ee;
+            box-shadow: 0 0 0 1px #C62828;
+        }
+
+        .opcion-pago input {
+            accent-color: #C62828;
+            width: 16px;
+            height: 16px;
+            margin-bottom: 2px;
+        }
+
+        .opcion-pago span {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .opcion-pago small {
+            font-size: 0.82rem;
+            color: #666;
+            line-height: 1.35;
+        }
+
+        /* Total */
+        .total-pagos {
+            margin-top: 22px !important;
+            margin-bottom: 22px !important;
+            padding: 12px;
+            border-radius: 10px;
+            background-color: #fff3dc;
+        }
+
+        .total-pagos h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0;
+        }
+
+        #total-pagos {
+            color: #C62828;
+            font-weight: 700;
+        }
+
+        /* Navegación */
+        .navegacion-pagos {
+            gap: 10px !important;
+            margin-bottom: 35px !important;
+        }
+
+        .navegacion-pagos .btn {
+            font-size: 0.88rem;
+            padding: 9px 16px;
+            border-radius: 8px;
+        }
+
+        /* Versión celular */
+        @media (max-width: 767px) {
+
+            .encabezado-pagos {
+                padding-top: 18px;
+                padding-bottom: 12px;
+            }
+
+            .encabezado-pagos h1 {
+                font-size: 1.45rem;
+            }
+
+            .encabezado-pagos p {
+                font-size: 0.82rem;
+            }
+
+            .pagos {
+                max-width: 100%;
+            }
+
+            .pagos h2 {
+                font-size: 1.15rem;
+                margin-bottom: 15px !important;
+            }
+
+            .opciones-pago {
+                gap: 9px;
+            }
+
+            .opcion-pago {
+                padding: 11px 12px;
+                gap: 4px;
+            }
+
+            .opcion-pago span {
+                font-size: 0.9rem;
+            }
+
+            .opcion-pago small {
+                font-size: 0.75rem;
+            }
+
+            .total-pagos {
+                margin-top: 16px !important;
+                margin-bottom: 18px !important;
+                padding: 10px;
+            }
+
+            .total-pagos h3 {
+                font-size: 1.1rem;
+            }
+
+            .navegacion-pagos {
+                gap: 8px !important;
+            }
+
+            .navegacion-pagos .btn {
+                font-size: 0.8rem;
+                padding: 8px 12px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- ENCABEZADO -->
+    <header class="container text-center encabezado-pagos">
+
+        <h1>💳 Forma de pago</h1>
+
+        <p>Elegí cómo querés pagar tu pedido</p>
+
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="container text-center">
+
+        <section class="pagos">
+
+            <h2 class="text-center">
+                Seleccioná un medio de pago
+            </h2>
+
+            <!-- OPCIONES DE PAGO -->
+            <div class="opciones-pago">
+
+                <!-- EFECTIVO -->
+                <label class="opcion-pago">
+
+                    <input type="radio"
+                           name="metodo-pago"
+                           value="Efectivo">
+
+                    <span>💵 Efectivo</span>
+
+                    <small>
+                        Pagás al retirar o recibir tu pedido.
+                    </small>
+
+                </label>
+
+                <!-- TRANSFERENCIA -->
+                <label class="opcion-pago">
+
+                    <input type="radio"
+                           name="metodo-pago"
+                           value="Transferencia bancaria">
+
+                    <span>🏦 Transferencia bancaria</span>
+
+                    <small>
+                        El comercio te indicará los datos para transferir.
+                    </small>
+
+                </label>
+
+                <!-- LINK DE PAGO -->
+                <label class="opcion-pago">
+
+                    <input type="radio"
+                           name="metodo-pago"
+                           value="Link de pago">
+
+                    <span>💳 Link de pago</span>
+
+                    <small>
+                        Recibirás un enlace para pagar con tarjeta.
+                    </small>
+
+                </label>
+
+            </div>
+
+            <!-- TOTAL DEL PEDIDO -->
+            <div class="total-pagos text-center">
+
+                <h3>
+                    Total:
+                    <span id="total-pagos">$0</span>
+                </h3>
+
+            </div>
+
+            <!-- BOTONES DE NAVEGACIÓN -->
+            <div class="navegacion-pagos d-flex justify-content-center flex-wrap">
+
+                <a href="resumen.html"
+                   class="btn btn-outline-danger">
+                    Volver al resumen
+                </a>
+
+                <button type="button"
+                        id="continuar-envio"
+                        class="btn btn-danger">
+                    Continuar al envío
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JavaScript de pagos -->
+    <script src="js/pagos.js"></script>
+
+</body>
+</html>
