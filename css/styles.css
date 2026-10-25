@@ -435,3 +435,31 @@ main .card {
         font-size: 12px;
     }
 }
+
+
+.footer-helix {
+  background-color: #202020;
+  color: #ffffff;
+}
+
+.footer-helix h5 {
+  color: #f4c542;
+}
+
+.footer-helix p,
+.footer-helix small {
+  color: #cccccc;
+}
+
+.footer-helix a {
+  color: #f4c542;
+  text-decoration: none;
+}
+
+.footer-helix a:hover {
+  text-decoration: underline;
+}
+
+.footer-helix hr {
+  border-color: #555555;
+}
