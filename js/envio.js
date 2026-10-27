@@ -174,6 +174,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
         }, 0);
 
+        const descuento = metodoPago === "Efectivo"
+    ? Math.round(total * 10) / 100
+    : 0;
+
+        const totalFinal =
+            Math.round((total - descuento) * 100) / 100;
+
         // ======================================
         // CONSTRUIR MENSAJE DE WHATSAPP
         // ======================================
@@ -200,7 +207,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
         mensaje += "━━━━━━━━━━━━━━━━━━\n";
 
-        mensaje += `💰 *TOTAL: $${total.toLocaleString("es-AR")}*\n`;
+        if (metodoPago === "Efectivo") {
+
+    mensaje += `Subtotal: $${total.toLocaleString("es-AR")}\n`;
+
+    mensaje += `Descuento en efectivo (10%): -$${descuento.toLocaleString("es-AR")}\n`;
+
+}
+
+    mensaje += `💰 *TOTAL: $${totalFinal.toLocaleString("es-AR")}*\n`;
 
         mensaje += "━━━━━━━━━━━━━━━━━━\n\n";
 

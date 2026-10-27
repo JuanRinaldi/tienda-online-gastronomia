@@ -463,3 +463,29 @@ main .card {
 .footer-helix hr {
   border-color: #555555;
 }
+
+/* Aviso accesible del descuento en efectivo */
+.opcion-pago .aviso-efectivo {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
+.opcion-efectivo:hover .aviso-efectivo,
+.opcion-efectivo:focus-within .aviso-efectivo,
+.opcion-efectivo:has(input:checked) .aviso-efectivo {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: 6px 10px;
+    overflow: visible;
+    clip-path: none;
+    white-space: normal;
+    background: #fff3dc;
+    color: #713b00;
+    border-radius: 6px;
+}

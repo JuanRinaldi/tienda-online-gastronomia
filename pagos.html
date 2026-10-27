@@ -219,14 +219,17 @@
             <div class="opciones-pago">
 
                 <!-- EFECTIVO -->
-                <label class="opcion-pago">
+                <label class="opcion-pago opcion-efectivo">
 
                     <input type="radio"
-                           name="metodo-pago"
-                           value="Efectivo">
+                        name="metodo-pago"
+                        value="Efectivo"
+                        aria-describedby="aviso-efectivo">
 
                     <span>💵 Efectivo</span>
-
+                    <small id="aviso-efectivo" class="aviso-efectivo">
+                        Abonando en efectivo tenés un 10% de descuento.
+                    </small>
                     <small>
                         Pagás al retirar o recibir tu pedido.
                     </small>
@@ -265,16 +268,19 @@
 
             </div>
 
-            <!-- TOTAL DEL PEDIDO -->
-            <div class="total-pagos text-center">
+                        <!-- TOTAL DEL PEDIDO -->
+            <div class="total-pagos text-center"
+                aria-live="polite"
+                aria-atomic="true">
 
                 <h3>
                     Total:
                     <span id="total-pagos">$0</span>
                 </h3>
 
-            </div>
+                <p id="detalle-descuento" class="mb-0 mt-2" hidden></p>
 
+            </div>
             <!-- BOTONES DE NAVEGACIÓN -->
             <div class="navegacion-pagos d-flex justify-content-center flex-wrap">
 

@@ -28,8 +28,34 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }, 0);
 
+function actualizarTotal() {
+
+    const pagoSeleccionado = document.querySelector(
+        'input[name="metodo-pago"]:checked'
+    );
+
+    const efectivo = pagoSeleccionado?.value === "Efectivo";
+
+    const descuento = efectivo
+        ? Math.round(total * 10) / 100
+        : 0;
+
+    const totalFinal =
+        Math.round((total - descuento) * 100) / 100;
+
     totalPagos.textContent =
-        "$" + total.toLocaleString("es-AR");
+        "$" + totalFinal.toLocaleString("es-AR");
+
+    const detalle = document.getElementById("detalle-descuento");
+
+    detalle.hidden = !efectivo;
+
+    detalle.textContent = efectivo
+        ? "Descuento en efectivo (10%): -$" +
+          descuento.toLocaleString("es-AR")
+        : "";
+
+}
 
     // ======================================
     // RECUPERAR MEDIO DE PAGO
@@ -50,6 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     });
 
+    actualizarTotal();
     // Eliminamos una selección antigua que ya no exista
     if (pagoGuardado && !pagoValido) {
 
@@ -66,6 +93,8 @@ document.addEventListener("DOMContentLoaded", () => {
         opcion.addEventListener("change", () => {
 
             localStorage.setItem("metodoPago", opcion.value);
+
+            actualizarTotal();
 
         });
 
